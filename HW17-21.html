@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW17-21</title>
+  </head>
+  <body>
+    <div id="display"></div>
+
+    <script>
+      let color = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "indigo",
+        "purple",
+      ];
+      function random(m) {
+        // 0 ~ 1
+        let rand = Math.random();
+        // 0, 1, 2, 3, 4, 5, 6
+        let rand2 = Math.floor(rand * m);
+        return rand2;
+      }
+
+      let display = document.getElementById("display");
+
+      function fourToSeven() {
+        let forToSeven = random(4) + 4;
+        for (let i = 0; i < forToSeven; i++) {
+          let zeroToNine = random(9);
+          let index = random(color.length);
+          let randColor = color[index];
+          let div = document.createElement("div");
+
+          div.style.color = randColor;
+          div.style.fontSize = "24px";
+          div.innerText = zeroToNine;
+          display.append(div);
+        }
+      }
+      fourToSeven();
+    </script>
+  </body>
+</html>

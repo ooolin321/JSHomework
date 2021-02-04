@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW11-21</title>
+  </head>
+  <body>
+    <script>
+      function twoNum(n, m) {
+        let array = [];
+        if ((n, m < 0)) {
+          console.log("error");
+        } else {
+          while (array.length < 3) {
+            array.push(
+              Math.round(
+                Math.random() * (Math.max(n, m) - Math.min(n, m)) +
+                  Math.min(n, m)
+              )
+            );
+          }
+        }
+        return array;
+      }
+
+      console.log(twoNum(10, 2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW16-21</title>
+  </head>
+  <body>
+    <div id="display"></div>
+    <script>
+      let str = "Hello...";
+      let display = document.getElementById("display");
+
+      function interlock(n) {
+        for (let i = 0; i < n; i++) {
+          let div = document.createElement("div");
+          let fontSize = 8 + 4*i;
+          div.style.fontSize = fontSize + "px";
+
+          if (i % 2 == 0) {
+            div.style.color = "blue";
+          } else {
+            div.style.color = "red";
+          }
+
+          div.innerText = str;
+          display.append(div);
+        }
+      }
+
+      interlock(12);
+    </script>
+  </body>
+</html>

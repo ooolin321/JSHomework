@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW14-21</title>
+  </head>
+  <body>
+    <script>
+      let str = "Hello Javascript World";
+
+      function procStr(str) {
+        let arr = str.split(" ");
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+          let word = arr[i];
+          let first = word.substring(0, 1);
+          let other = word.substring(1);
+          if (i === 0) {
+            first = first.toLowerCase();
+          } else {
+            first = first.toUpperCase();
+          }
+          let newWord = first + other;
+          newArr.push(newWord);
+        }
+        let newStr = newArr.join("");
+        console.log(newStr);
+      }
+
+      let newStr = procStr(str);
+      console.log(newStr);
+
+    </script>
+  </body>
+</html>

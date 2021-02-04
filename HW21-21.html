@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW-21</title>
+    <style>
+      table {
+        margin: auto;
+        padding-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>身分證檢查:</td>
+        <td>
+          <input type="text" name="input" id="input" value="" />
+        </td>
+        <td>
+          <button id="check">檢查</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      let check = document.getElementById("check");
+      let input = document.getElementById("input");
+      check.addEventListener("click", function () {
+        isIdNo(input.value);
+      });
+
+      function isIdNo(id) {
+        let rex = "^[A-Z]\\d{9}$";
+        let transTable = [
+          "A",//10
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "X",
+          "Y",
+          "W",
+          "Z",
+          "I",
+          "O",//35
+        ]; //10-35排序
+
+        if (id.match(rex)) {
+          let sum = 0;
+          firstAlpha = transTable.indexOf(id.charAt(0)) + 10; //第一個英文字母代表的數字
+          processedNum = firstAlpha.toString().charAt(1) + id.substring(1);
+          for (let i = 0; i < 10; i++) {
+            sum += processedNum.charAt(i) * (9 - i);//只有加數字部分//英文未加
+          }
+          sum += parseInt(firstAlpha.toString().charAt(0));//A === 10 字串取第一個數字再轉回數字
+          checkCode = 10 - (sum % 10);
+
+          if (checkCode === parseInt(id.charAt(9))) {
+            window.alert("正確");
+          } else {
+            window.alert("錯誤的身分證格式");
+          }
+        } else {
+          window.alert("請輸入正確身分證格式");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW15-21</title>
+  </head>
+  <body>
+    <script>
+      let str = "The quick brown fox jumps over the lazy dog";
+      let substr = "the";
+
+      function findStr(str, substr) {
+        let arr = str.toLowerCase().split(" ");
+        substr = substr.toLowerCase();
+        let index = []; //選取字的index
+        let length = []; //每個字的長度
+        let ans = []; //答案
+
+        for (let i = 0; i < arr.length; i++) {
+          length[i] = arr[i].length;
+          if (arr[i] === substr) {
+            index.push(i);
+          }
+        }
+
+        //(index 0 = 0+0),(index 6 = (3+5+5+3+5+4)+6)
+        for (let i = 0; i < index.length; i++) {
+          let a = 0;
+          for (let j = 0; j < index[i]; j++) {
+            a += length[j];
+          }
+          ans[i] = a + index[i];
+        }
+        return ans;
+      }
+
+      console.log(findStr(str, substr));
+    </script>
+  </body>
+</html>

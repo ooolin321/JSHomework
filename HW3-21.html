@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW3-21</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let a=0,b=0,c=0,d=0,person =0;
+            while(true){
+                a = person % 7;
+                b = person % 9;
+                c = person % 10;
+                d = person % 11;
+                if(a === 3 && b === 4 && c === 2 && d === 1){
+                    console.log(person);
+                    break;
+                }else{
+                    person +=1;
+                }
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW7-21</title>
+  </head>
+  <body>
+    <script>
+      function snail(a, b, c, d) {
+        if ((a, b, c, d < 0)) {
+          console.log("error");
+        } else if (a < b) {
+          console.log("error");
+        } else if (c < d) {
+          console.log("error");
+        } else {
+          let i = 0;
+          while (b + (c - d) * i + d < a) {
+            i++;
+          }
+          console.log(i);
+        }
+      }
+      snail(100, 3, 8, 7);
+    </script>
+  </body>
+</html>

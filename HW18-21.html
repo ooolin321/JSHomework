@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW18-21</title>
+    <style>
+      #display #nowTime {
+        color: black;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="display">
+      <div id="nowTime">2020/1/31 21:39:00</div>
+    </div>
+    <script>
+      function timeFormat() {
+        let now = new Date();
+        let ampm = "";
+        let hours = now.getHours();
+        if (hours > 12) {
+          hours -= 12;
+          ampm = "PM";
+        } else {
+          ampm = "AM";
+        }
+
+        return (
+          "現在時間:" +
+          (now.getFullYear() +
+            "/" +
+            (now.getMonth() + 1) +
+            "/" +
+            now.getDate() +
+            " " +
+            hours +
+            ":" +
+            now.getMinutes() +
+            ":" +
+            now.getSeconds() +
+            " " +
+            ampm)
+        );
+      }
+
+      let nowTime = document.getElementById("nowTime");
+      let now = new Date();
+
+      nowTime.innerText = timeFormat(now);
+
+      let timer = setInterval(function () {
+        now = new Date();
+        nowTime.innerText = timeFormat(now);
+      }, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW8-21</title>
+  </head>
+  <body>
+    <script>
+      function sortArray(array) {
+        let numArray = [];
+        let stringArray = [];
+        for (let i = 0; i < array.length; i++) {
+          if (typeof array[i] === "number") {
+            numArray.push(array[i]);
+          } else {
+            stringArray.push(array[i]);
+          }
+        }
+        numArray.sort(function (a, b) {
+          return a - b;
+        });
+        stringArray.sort();
+        return numArray.concat(stringArray);
+      }
+
+      var arr = [
+        23,
+        "th",
+        12,
+        3,
+        4,
+        53,
+        "Green",
+        "Orange",
+        -9,
+        ,
+        "HelloJava",
+        556,
+        77.2,
+        34,
+        34,
+        "helloJavascript",
+        23,
+        -34,
+        -5,
+        "tb",
+      ];
+      console.log(sortArray(arr));
+    </script>
+  </body>
+</html>

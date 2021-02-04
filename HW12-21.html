@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW12-21</title>
+  </head>
+  <body>
+    <script>
+      function lottery() {
+        let array = [];
+        while (array.length < 6) {
+          let index = Math.round(Math.random() * 48) + 1;
+          if (array.indexOf(index) === -1) {
+            array.push(index);
+          }
+        }
+        return array;
+      }
+      console.log(lottery());
+    </script>
+  </body>
+</html>

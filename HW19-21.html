@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW19-21</title>
+    <style>
+      .box {
+        width: 500px;
+        margin: 0 auto;
+      }
+      .box tr td {
+        width: 100px;
+        height: 100px;
+        border: 3px solid #000000;
+        color: #333;
+        line-height: 100px;
+        text-align: center;
+      }
+      .button {
+        width: 150px;
+        height: 50px;
+        margin: 0 auto;
+        font-size: 12px;
+        line-height: 50px;
+        text-align: center;
+      }
+      .prize {
+        font-size: 60px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button">
+      <input type="button" value="搖獎" name="btn" />
+    </div>
+    <div>
+      <table class="box">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2" rowspan="2" class="prize"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      let btn = document.getElementsByName("btn")[0];
+      let box = document
+        .getElementsByClassName("box")[0]
+        .querySelectorAll("td");
+      let index = [0, 1, 2, 3, 6, 8, 12, 11, 10, 9, 7, 4];
+
+      btn.addEventListener("click", function () {
+        //搖獎
+
+        init();
+
+        timer = setInterval(function () {
+          getPrize();
+        }, 1800);
+
+        running();
+      });
+
+      function init() {
+        //初始化
+        btn.disabled = true;
+        box[5].style.background = "white";
+        box[5].innerText = "";
+        for (let i = 0; i < index.length; i++) {
+          box[index[i]].style.background = "white";
+          box[index[i]].innerText = "";
+        }
+      }
+
+      function getPrize() {
+        //獎金
+        let money = Math.floor(Math.random() * 9999000 + 1000);
+        box[5].innerText = money;
+        box[5].style.background = "red";
+        btn.disabled = false;
+
+        clearInterval(timer);
+      }
+
+      function running() {
+        //動畫
+        let circle = 5;
+        let offset1 = 0;
+        let offset2 = 0;
+        for (let j = 0; j < circle; j++) {
+          //圈數
+          let max = index.length;
+          if (j === circle - 1) {
+            max = Math.floor(Math.random() * 11 + 1);
+          }
+          setTimeout(function () {
+            //藍色
+            for (let i = 0; i < max; i++) {
+              setTimeout(function () {
+                box[index[i]].style.background = "blue";
+              }, offset1);
+              offset1 += 30;
+            }
+            // console.log(offset1);
+            //白色
+            for (let i = 0; i < max; i++) {
+              setTimeout(function () {
+                box[index[i]].style.background = "white";
+                if (j === circle - 1) {
+                  box[index[max]].style.background = "blue";
+                  box[index[max]].innerText = "恭喜中獎";
+                  box[index[max]].style.color = "yellow";
+                }
+              }, 120 + offset2);
+              offset2 += 30;
+            }
+            // console.log(offset2);
+          }, 150);
+        }
+      }
+    </script>
+  </body>
+</html>

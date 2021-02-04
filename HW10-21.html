@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW10-21</title>
+  </head>
+  <body>
+    <script>
+      function plus(array, num) {
+        newArray = [];
+        for (let i = 0; i < array.length; i++) {
+          newArray.push(array[i] + num);
+        }
+        return newArray;
+      }
+
+      function multiple(array, num) {
+        newArray = [];
+        for (let i = 0; i < array.length; i++) {
+          newArray.push(array[i] * num);
+        }
+        return newArray;
+      }
+
+      function pow(array, num) {
+        newArray = [];
+        for (let i = 0; i < array.length; i++) {
+          newArray.push(Math.pow(array[i], 2));
+        }
+        return newArray;
+      }
+
+      function calculate(array, num, callback) {
+        return callback(array, num);
+      }
+
+      var arr = [11, 21, 31, 41, 51];
+
+      console.log("原始Array:");
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+      }
+      let ans1 = calculate(arr, 1, plus);
+      console.log("Array + 1:");
+      for (let i = 0; i < ans1.length; i++) {
+        console.log(ans1[i]);
+      }
+      let ans2 = calculate(arr, 2, multiple);
+      console.log("Array * 2:");
+      for (let i = 0; i < ans2.length; i++) {
+        console.log(ans2[i]);
+      }
+      let ans3 = calculate(arr, arr, pow);
+      console.log("Array * Array:");
+      for (let i = 0; i < ans3.length; i++) {
+        console.log(ans3[i]);
+      }
+    </script>
+  </body>
+</html>
