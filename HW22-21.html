@@ -33,6 +33,10 @@
       input[type="checkbox"] {
         margin-top: 50 auto;
       }
+      #preview{
+        width: 200px;
+      }
+
     </style>
   </head>
   <body>
@@ -60,16 +64,16 @@
         let preview = document.getElementById("preview");
         let remove = document.getElementById("remove");
         let checkArr = [];
-        
+
         // 2. 對myFile物件註冊change事件 - 改變選擇的檔案時觸發
         myFile.addEventListener("change", function (e) {
           // 取得檔案物件的兩種方式
           // 1. 直接從myFile物件上取得檔案物件 (因為非同步，一樣，多個classname註冊時會有問題)
-          
+
           // 2. 從event物件中取得他的soure target，也就是myFile物件，再取得檔案物件
           let files = e.target.files;
           // 檔案的基本資訊，包括：檔案的名稱、大小與文件型態
-          if (files !== null && checkArr.indexOf(e.target.value)===-1) {
+          if (files !== null && checkArr.indexOf(e.target.value) === -1) {
             //file不為空值且checkArr找不到才新增
             checkArr.push(e.target.value);
             // 判斷files物件是否存在
@@ -111,9 +115,10 @@
                     for (let j = 0; j < label.length; j++) {
                       if (checkbox[j].checked === true) {
                         label[j].remove();
-                        checkArr.pop(label.values);
+                        checkArr.splice(j, 1); //刪除checkArr裡的file暫存
                       }
                     }
+                    console.log(checkArr);
                   });
                 });
                 reader.readAsDataURL(file);
