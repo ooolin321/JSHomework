@@ -41,9 +41,11 @@
   <body>
     <div class="container">
       <div class="row">
-        <label>請上傳圖片檔案: </label>
-        <!-- 這裡一定要有一個<input type="file">的元素，當上傳點 -->
-        <input type="file" id="myFile" multiple />
+        <form action="">
+          <label>請上傳圖片檔案: </label>
+          <!-- 這裡一定要有一個<input type="file">的元素，當上傳點 -->
+          <input type="file" id="myFile" multiple />
+        </form>
       </div>
       <div>
         <button id="remove">刪除</button>
@@ -52,6 +54,7 @@
         <div id="preview"></div>
       </div>
     </div>
+
     <script type="text/javascript">
       // 題目： 請製作可以同時上傳多張圖片到前端預覽的功能
       // 學習重點：
